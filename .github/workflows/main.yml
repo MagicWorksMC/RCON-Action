@@ -11,10 +11,13 @@ jobs:
     runs-on: ubuntu-latest
     name: RCON Test
     steps:
-      - name: RCON Connection
-        uses: Plagiatus/RCON-Action@v0.3
+      - name: Send Proxy RCON Command
+        uses: MagicWorksMC/RCON-Action
+        continue-on-error: true
         with:
-          server: ${{ secrets.rcon_server }}
-          port: ${{ secrets.rcon_port }}
-          password: ${{ secrets.rcon_password }}
-          commands: '["say hi", "reload"]'
+          server: ${{ secrets.PROXY_HOST }}      # Pulls from org secret
+          port: ${{ secrets.PROXY_RCON_PORT }}        # Pulls from org secret
+          password: ${{ secrets.RCON_PASSWORD }}  # Pulls from org secret
+          send-push-info: false
+          commands: '["glist all"]'
+          timeout: 5000

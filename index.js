@@ -17,12 +17,13 @@ async function run() {
 			commands: JSON.parse(core.getInput("commands")),
 			sendPushInfo: core.getBooleanInput("send-push-info"),
 			pushInfoRecipient: core.getInput("push-info-recipient"),
+			timeout: Number(core.getInput("timeout")) || 3000
 		}
 		const payload = JSON.stringify(github.context.payload, undefined, 2);
 		// console.log(inputs);
 		// console.log(payload);
 
-		const srvr = new rcon();
+		const srvr = new rcon(inputs.timeout);
 		console.log("Connecting to server via RCON...");
 		await srvr.connect(inputs.server, inputs.port, inputs.password)
 		console.log("🟢 Connected and authenticated.");
