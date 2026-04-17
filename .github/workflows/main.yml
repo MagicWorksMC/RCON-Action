@@ -29,5 +29,5 @@ jobs:
           port: ${{ secrets.STAFF_RCON_PORT }}        # Pulls from org secret
           password: ${{ secrets.RCON_PASSWORD }}  # Pulls from org secret
           send-push-info: false
-          commands: '["saj hello"]'
+          commands: '["list"]'
 
