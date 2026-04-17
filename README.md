@@ -44,6 +44,7 @@ jobs:
 | commands | no | Additional commands you want to run, in the form of a JSON String Array |  | `'["say hi", "reload"]'` |
 | send-push-info | no | Whether a tellraw informing about the push should be sent | `true` |  |
 | push-info-recipient | no | Changes the selector of the push info tellraw. | `@a` | `@a[tag=admin]` |
+| timeout | no | Changes the timeout for failure | `3000` | `5000` |
 
 It is highly recommended to use [github secrets](https://docs.github.com/en/actions/reference/encrypted-secrets) instead of plaintext inclusions for more sensitive data like the IP or the password.
 

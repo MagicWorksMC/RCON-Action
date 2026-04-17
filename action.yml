@@ -23,6 +23,10 @@ inputs:
     required: false
     description: Changes the selector of who should be getting the server info.
     default: "@a"
+  timeout:
+    required: false
+    description: Changes the timeout for failure
+    default: "3000"
 runs:
   using: node16
   main: index.js
