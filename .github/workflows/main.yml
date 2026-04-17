@@ -12,7 +12,7 @@ jobs:
     name: RCON Test
     steps:
       - name: Send Proxy RCON Command
-        uses: MagicWorksMC/RCON-Action
+        uses: MagicWorksMC/RCON-Action@v0.1.0
         continue-on-error: true
         with:
           server: ${{ secrets.PROXY_HOST }}      # Pulls from org secret
