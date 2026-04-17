@@ -20,4 +20,14 @@ jobs:
           password: ${{ secrets.RCON_PASSWORD }}  # Pulls from org secret
           send-push-info: false
           commands: '["glist all"]'
-          timeout: 5000
+
+      - name: Send Staff RCON Command
+        uses: MagicWorksMC/RCON-Action@v0.2.0
+        continue-on-error: true
+        with:
+          server: ${{ secrets.MWPC_HOST }}      # Pulls from org secret
+          port: ${{ secrets.STAFF_RCON_PORT }}        # Pulls from org secret
+          password: ${{ secrets.RCON_PASSWORD }}  # Pulls from org secret
+          send-push-info: false
+          commands: '["list"]'
+
