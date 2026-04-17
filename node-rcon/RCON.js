@@ -114,8 +114,9 @@ module.exports = class RCON {
       return new Promise((resolve, reject) => {
         const id = Packet.id();
         this.queue.sending.push(Packet.write(id, Packet.type['COMMAND'], command));
-        this.queue.sending.push(Packet.write(id, Packet.type['COMMAND_END'], ''));
+        // this.queue.sending.push(Packet.write(id, Packet.type['COMMAND_END'], '')); // Send error command, to look for unknown command response
         this.drain();
+        resolve("Command sent successfully");
         this.events.on(id, result => {
           if (result instanceof Error) {
             reject(result);
